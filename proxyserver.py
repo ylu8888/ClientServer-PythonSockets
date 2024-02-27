@@ -1,4 +1,3 @@
-
 #Yang Lu 114607667 CSE 310 Assignment 1 Part 2
 
 #caching making a file out of the response
@@ -8,12 +7,12 @@
 #with an extra port on it, where you create files
 from socket import *
 
-host = '127.0.0.1'  #localhost
+#host = '127.0.0.1'  #localhost
 proxyPort = 8888
 serverPort = 80   
 
 serverSocket = socket(AF_INET,SOCK_STREAM) #creating the socket
-serverSocket.bind((host, proxyPort))
+serverSocket.bind(('', proxyPort))
 
 serverSocket.listen(1) #listen for connections
 print('The PROXY Server is ready to receive')
