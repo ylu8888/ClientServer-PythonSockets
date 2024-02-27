@@ -1,4 +1,4 @@
-#Yang Lu 114607667 CSE 310 Assignment 1 Part 2
+\#Yang Lu 114607667 CSE 310 Assignment 1 Part 2
 
 #caching making a file out of the response
 #check ur local files to see if its there
@@ -8,7 +8,7 @@
 from socket import *
 
 #host = '127.0.0.1'  #localhost
-proxyPort = 8888
+proxyPort = 8000
 serverPort = 80   
 
 serverSocket = socket(AF_INET,SOCK_STREAM) #creating the socket
@@ -23,8 +23,7 @@ while True:
     request = connectionSocket.recv(4096).decode() #receives the http request
     htmlfile = request.split()[1][1:] #this extracts out the name of hello.html
     #delimiter splits into words, the URL is usually the second element, 1: takes the entire string onward
-    print('this is the html file')
-    print(htmlfile)
+    print('this is the html file', htmlfile)
 
     #make a socket for both the proxy and the server
     #look in ur own cache, look if whatever they requested, google for example, if its not in ur own cache like u dont have a local file of google,
@@ -35,22 +34,21 @@ while True:
     try: #CHECKING IF THE CLIENT REQUEST IS IN THE CACHE
         with open(htmlfile, 'rb') as cache:
             responseData = cache.read()
-            # response = "HTTP/1.1 200 OK\r\n\r\n".encode() + responseData 
-            response = "HTTP/1.1 200 OK\r\n\r\n".encode()
+            response = "HTTP/1.1 200 OK\r\n\r\n".encode() + responseData 
+            #response = "HTTP/1.1 200 OK\r\n\r\n".encode()
             print('WE FOUND THE FILES IN THE CACHE')
 
     except: #IF ITS NOT IN THE CACHE WE HAVE TO ASK THE WEBSERVER
         try:
-            #url = htmlfile.split('/')[0]
+
             ipAddress = gethostbyname(htmlfile)
-            #print(url)
-            print('this is the address') 
-            print(ipAddress)
+            print('this is the address', ipAddress) 
             secondSocket = socket(AF_INET, SOCK_STREAM)
             secondSocket.connect((ipAddress, serverPort))  #connect the google URL with PORT 80
             print('connected to the other server')
 
             secondSocket.sendall(request.encode())  #send cleint request, have to encode because its a string
+            
             response = secondSocket.recv(4096)
             secondSocket.close()
 
