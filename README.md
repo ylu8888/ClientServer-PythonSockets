@@ -1,8 +1,15 @@
+For Part A: Webserver, if the image does not render, please refresh and it works successfully !
+
 Websites that work for me:
+
 www.google.com
+
 www.amazon.com
+
 gaia.cs.umass.edu
+
 info.cern.ch
+
 neverssl.com
 
 
