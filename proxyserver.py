@@ -1,4 +1,3 @@
-\#Yang Lu 114607667 CSE 310 Assignment 1 Part 2
 
 #caching making a file out of the response
 #check ur local files to see if its there
@@ -8,7 +7,7 @@
 from socket import *
 
 #host = '127.0.0.1'  #localhost
-proxyPort = 8000
+proxyPort = 8888
 serverPort = 80   
 
 serverSocket = socket(AF_INET,SOCK_STREAM) #creating the socket
@@ -21,9 +20,15 @@ while True:
     connectionSocket, addr = serverSocket.accept() # accept incoming connections
 
     request = connectionSocket.recv(4096).decode() #receives the http request
+    print('this is the request', request)
     htmlfile = request.split()[1][1:] #this extracts out the name of hello.html
     #delimiter splits into words, the URL is usually the second element, 1: takes the entire string onward
     print('this is the html file', htmlfile)
+
+    url = htmlfile
+    if url.startswith("http://"):
+        url = url[len("http://"):]
+    print('this the url', url)
 
     #make a socket for both the proxy and the server
     #look in ur own cache, look if whatever they requested, google for example, if its not in ur own cache like u dont have a local file of google,
@@ -41,10 +46,10 @@ while True:
     except: #IF ITS NOT IN THE CACHE WE HAVE TO ASK THE WEBSERVER
         try:
 
-            ipAddress = gethostbyname(htmlfile)
-            print('this is the address', ipAddress) 
+            # ipAddress = gethostbyname(htmlfile)
+            # print('this is the address', ipAddress) 
             secondSocket = socket(AF_INET, SOCK_STREAM)
-            secondSocket.connect((ipAddress, serverPort))  #connect the google URL with PORT 80
+            secondSocket.connect((url, serverPort))  #connect the google URL with PORT 80
             print('connected to the other server')
 
             secondSocket.sendall(request.encode())  #send cleint request, have to encode because its a string
