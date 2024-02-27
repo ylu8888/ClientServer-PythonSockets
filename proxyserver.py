@@ -41,14 +41,13 @@ while True:
 
     except: #IF ITS NOT IN THE CACHE WE HAVE TO ASK THE WEBSERVER
         try:
-            url = htmlfile.split('/')[0]
-            ipAddress = gethostbyname(url)
-            print('this is the url')
-            print(url)
+            #url = htmlfile.split('/')[0]
+            ipAddress = gethostbyname(htmlfile)
+            #print(url)
             print('this is the address') 
             print(ipAddress)
             secondSocket = socket(AF_INET, SOCK_STREAM)
-            secondSocket.connect((url, serverPort))  #connect the google URL with PORT 80
+            secondSocket.connect((ipAddress, serverPort))  #connect the google URL with PORT 80
             print('connected to the other server')
 
             secondSocket.sendall(request.encode())  #send cleint request, have to encode because its a string
