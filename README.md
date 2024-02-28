@@ -4,14 +4,23 @@ For Part A:
 For Part B:
 -Please don't forget to remove the '/' at the very end. For example for http://captive.apple.com/ change it to http://captive.apple.com
 
-HTTP ONLY WEBSITES THAT WORKED FOR ME: 
+HTTP ONLY WEBSITES THAT WORKED FOR ME:
+
 http://captive.apple.com
-http://info.cern.chh
+
+http://example.com 
+
+http://info.cern.ch
+
 http://http.badssl.com
+
 http://neverssl.com
+
 http://http-textarea.badssl.com
-http://httpforever.com
+
 http://gaia.cs.umass.edu
+
+http://httpforever.com
 
 Part B Notes:
 -If you store a webpage in the cache, and then try to search the website, mhen you refresh, it renders the underlying sense HTML on the website. But it still successfully stores the cache and the TA Tyler Osborne said this was fine.
