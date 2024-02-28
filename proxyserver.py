@@ -37,7 +37,7 @@ while True:
     #and give it to them from the cache
 
     try: #CHECKING IF THE CLIENT REQUEST IS IN THE CACHE
-        with open(htmlfile, 'rb') as cache:
+        with open(url, 'rb') as cache:
             responseData = cache.read()
             response = "HTTP/1.1 200 OK\r\n\r\n".encode() + responseData 
             #response = "HTTP/1.1 200 OK\r\n\r\n".encode()
@@ -59,8 +59,8 @@ while True:
             response = secondSocket.recv(4096)
             secondSocket.close()
 
-            #SAVING IT INTO THE CACHE
-            with open(htmlfile, 'wb') as cache:
+            #SAVING IT INTO THE CACHE   
+            with open(url, 'wb') as cache:
                 cache.write(response) 
                 print('SUCCESSFULLY SAVED INTO THE CACHE')
 
@@ -70,3 +70,4 @@ while True:
 
     connectionSocket.sendall(response)
     connectionSocket.close()
+
