@@ -28,6 +28,9 @@ while True:
     url = htmlfile
     if url.startswith("http://"):
         url = url[len("http://"):]
+    if url.endswith('/'):
+        url = url[:-1]
+    
     print('this the url', url)
 
     #make a socket for both the proxy and the server
@@ -70,4 +73,3 @@ while True:
 
     connectionSocket.sendall(response)
     connectionSocket.close()
-
