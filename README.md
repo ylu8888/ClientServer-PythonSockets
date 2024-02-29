@@ -12,13 +12,15 @@ http://example.com
 
 http://info.cern.ch
 
+http://www.testingmcafeesites.com
+
+http://gaia.cs.umass.edu
+
 http://http.badssl.com
 
 http://neverssl.com
 
 http://http-textarea.badssl.com
-
-http://gaia.cs.umass.edu
 
 
 Part B Notes:
