@@ -20,7 +20,6 @@ http://http-textarea.badssl.com
 
 http://gaia.cs.umass.edu
 
-http://httpforever.com
 
 Part B Notes:
 -If you store a webpage in the cache, and then try to search the website, mhen you refresh, it renders the underlying sense HTML on the website. But it still successfully stores the cache and the TA Tyler Osborne said this was fine.
