@@ -22,10 +22,12 @@ http://gaia.cs.umass.edu
 
 
 Part B Notes:
--If you store a webpage in the cache, and then try to search the website, mhen you refresh, it renders the underlying sense HTML on the website. But it still successfully stores the cache and the TA Tyler Osborne said this was fine.
+-If you store a webpage in the cache, and then try to search the website again, mhen you refresh, it renders the underlying sense HTML on the website. But it still successfully stores the cache and the TA Tyler Osborne said this HTMl display was fine.
 
 -Might have to restart the server if you wanna try several websites in succession like google -> amazon. But maybe you won't have to do this.
 
 -Sometimes, if you search for a webpage for the first time, it will redirect you to amazon and won't cache it properly. 
+
+-After leaving the server on idle for a while, it'll say something like traceback most recent call last: IndexError: list index out of range and then the server will close. Please just restart and it'll be fine again.
 
 -Also, it might take a little while to load a website, perhaps 10-20 seconds. Thanks for your patience.
