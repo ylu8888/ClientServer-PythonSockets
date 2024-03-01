@@ -55,7 +55,7 @@ while True:
             secondSocket.connect((url, serverPort))  #connect the google URL with PORT 80
             print('connected to the other server')
 
-            req = f"GET / HTTP/1.1\r\nHost: {url}\r\n\r\n"
+            req = f"GET / HTTP/1.1\r\nHost: {url}\r\n\r\n" #this is the get request
 
             secondSocket.sendall(req.encode())  #send cleint request, have to encode because its a string
             
