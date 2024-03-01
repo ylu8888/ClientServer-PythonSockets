@@ -50,5 +50,3 @@ http://http.badssl.com
 http://neverssl.com
 
 http://http-textarea.badssl.com
-
-Websites that failed for me:
